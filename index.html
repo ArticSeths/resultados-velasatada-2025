@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velasatada del Año 2025 - Star Citizen Org</title>
+    <title>Velasatada Harkonnen 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -11,177 +11,260 @@
         
         body { 
             font-family: 'Rajdhani', sans-serif; 
-            background-color: #0B0E17;
+            background-color: #050505;
             background-image: 
-                radial-gradient(circle at 50% 0%, #1a2c4e 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, #1e1b2e 0%, transparent 50%);
+                linear-gradient(rgba(255, 100, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 100, 0, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 50% -20%, #3f1808 0%, #000000 60%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            color: #d4d4d8;
         }
         
-        h1, h2, h3, .sc-font { font-family: 'Orbitron', sans-serif; }
+        h1, h2, h3, .harkonnen-font { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
 
-        .sc-glass {
-            background: rgba(16, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        .hk-glass {
+            background: rgba(20, 10, 5, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(234, 88, 12, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
         }
 
-        .sc-card {
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border-left: 3px solid #38bdf8;
+        .hk-card {
+            background: linear-gradient(180deg, rgba(35, 15, 10, 0.9) 0%, rgba(10, 5, 2, 0.95) 100%);
+            border-left: 4px solid #ea580c; /* Orange-600 */
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .sc-card:hover {
-            border-left-color: #fbbf24;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-            transform: translateX(4px);
-        }
-
-        .bracket-line {
+        .hk-card::before {
+            content: '';
             position: absolute;
-            background-color: #475569;
-            z-index: -1;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(234, 88, 12, 0.03) 10px,
+                rgba(234, 88, 12, 0.03) 20px
+            );
+            pointer-events: none;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        .hk-card:hover {
+            border-left-color: #ffffff;
+            box-shadow: 0 0 25px rgba(234, 88, 12, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Podio */
+        .podium-place {
+            background: linear-gradient(to top, rgba(234, 88, 12, 0.1), transparent);
+            border-top: 2px solid #ea580c;
+        }
+        .bald-skin {
+            filter: drop-shadow(0 0 8px rgba(255, 200, 150, 0.3));
+        }
+
+        /* Scrollbar Industrial */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #1a0b05; }
+        ::-webkit-scrollbar-thumb { background: #ea580c; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff762e; }
+        
+        .glow-text { text-shadow: 0 0 10px rgba(234, 88, 12, 0.5); }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ea580c, transparent);
+            margin: 4rem 0;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '♦';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #050505;
+            padding: 0 10px;
+            color: #ea580c;
+        }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen p-4 md:p-6 overflow-x-hidden">
+<body class="min-h-screen p-4 md:p-6 overflow-x-hidden selection:bg-orange-900 selection:text-white">
 
-    <!-- Header -->
-    <header class="max-w-7xl mx-auto mb-10 text-center relative">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-        
-        <div class="inline-block border border-cyan-500/30 bg-slate-900/50 px-4 py-1 rounded-full text-cyan-400 text-sm font-bold tracking-widest mb-4 uppercase">
-            Star Citizen Organization Event
+    <!-- Header Harkonnen -->
+    <header class="max-w-7xl mx-auto mb-12 text-center relative z-10">
+        <div class="inline-block border border-orange-600/50 bg-black/60 px-6 py-2 text-orange-500 text-xs font-black tracking-[0.3em] mb-6 uppercase shadow-[0_0_15px_rgba(234,88,12,0.2)]">
+            Giedi Prime // Sector 9
         </div>
         
-        <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-amber-400 mb-2 filter drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
-            VELASATADA 2025
+        <h1 class="text-4xl md:text-7xl font-black text-white mb-2 uppercase glow-text">
+            VELASATADA <span class="text-orange-600">2025</span>
         </h1>
-        <p class="text-slate-400 text-lg md:text-xl font-light tracking-wide">
-            Torneo Clasificatorio & Sistema de Apuestas
+        
+        <p class="text-orange-200/60 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto mb-4">
+            "En la uniformidad encontramos la fuerza. Una sola cabeza, una sola piel, una sola ambición."
         </p>
     </header>
 
-    <main class="max-w-[1600px] mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8">
-        
-        <!-- Columna Izquierda: Leaderboard (Economía) -->
-        <section class="xl:col-span-1 order-2 xl:order-1">
-            <div class="sc-glass rounded-xl p-6 sticky top-8">
-                <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-amber-400 border-b border-white/10 pb-4">
-                    <i class="fas fa-chart-line"></i> Ranking Financiero
-                </h2>
-                <div id="leaderboard" class="space-y-3">
-                    <!-- Leaderboard JS -->
-                </div>
-            </div>
-        </section>
+    <!-- ========================================== -->
+    <!-- SECCIÓN 1: EL TORNEO (Ranking de Boxeo) -->
+    <!-- ========================================== -->
+    <section class="max-w-[1600px] mx-auto mb-8">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="h-px bg-orange-900 flex-1"></div>
+            <h2 class="text-3xl font-black text-white uppercase tracking-widest glow-text">
+                <i class="fas fa-fist-raised text-orange-600 mr-2"></i> Ranking de Gladiadores
+            </h2>
+            <div class="h-px bg-orange-900 flex-1"></div>
+        </div>
 
-        <!-- Columna Derecha: Torneo y Combates -->
-        <section class="xl:col-span-3 order-1 xl:order-2 space-y-8">
+        <!-- PODIO DE LUCHADORES -->
+        <div class="max-w-4xl mx-auto mb-12 relative">
+            <div class="text-center mb-4">
+                <p class="text-zinc-500 uppercase tracking-[0.2em] text-sm">Campeones de la Arena</p>
+            </div>
             
-            <!-- Visualización del Bracket -->
-            <div class="sc-glass rounded-xl p-6 overflow-x-auto">
-                <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-cyan-400">
-                    <i class="fas fa-sitemap"></i> Estructura del Torneo
-                </h2>
-                
-                <!-- Grid de Fases -->
-                <div class="min-w-[800px] grid grid-cols-4 gap-4 text-center mb-4">
-                    <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">Clasificatorias</div>
-                    <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">Cuartos / Eliminatoria</div>
-                    <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">Semifinales</div>
-                    <div class="text-amber-500/80 text-xs uppercase tracking-widest font-bold shadow-amber-500/50">Finales</div>
+            <div class="flex items-end justify-center gap-4 h-64 md:h-80 px-4">
+                <!-- 2do Lugar: JPTheKit -->
+                <div class="flex flex-col items-center justify-end group w-1/3">
+                    <div class="mb-2 relative transition-transform duration-500 group-hover:-translate-y-2">
+                        <i class="fas fa-user-astronaut text-6xl text-zinc-400 bald-skin"></i>
+                    </div>
+                    <div class="text-center mb-2 z-10">
+                        <div class="font-black uppercase tracking-wider text-sm md:text-base text-white glow-text">JPTheKit</div>
+                        <div class="font-mono text-xs text-zinc-500">Subcampeón</div>
+                    </div>
+                    <div class="w-full h-32 md:h-40 bg-gradient-to-t from-black to-zinc-900 border-x border-t border-zinc-700 flex items-end justify-center podium-place relative overflow-hidden">
+                        <div class="absolute bottom-0 text-[100px] font-black text-white/5 font-orbitron leading-none select-none">2</div>
+                    </div>
                 </div>
 
-                <div class="min-w-[800px] grid grid-cols-4 gap-6 relative" id="bracket-view">
-                    <!-- Se llena con JS agrupando las peleas -->
+                <!-- 1er Lugar: Nijhitivi -->
+                <div class="flex flex-col items-center justify-end group w-1/3">
+                    <div class="mb-2 relative transition-transform duration-500 group-hover:-translate-y-2">
+                        <i class="fas fa-user-astronaut text-7xl text-orange-500 bald-skin"></i>
+                        <i class="fas fa-crown absolute -top-6 left-1/2 -translate-x-1/2 text-2xl drop-shadow-md text-white animate-bounce"></i>
+                    </div>
+                    <div class="text-center mb-2 z-10">
+                        <div class="font-black uppercase tracking-wider text-lg md:text-xl text-white glow-text">Nijhitivi</div>
+                        <div class="font-mono text-xs text-orange-500">Campeón Supremo</div>
+                    </div>
+                    <div class="w-full h-48 md:h-60 bg-gradient-to-t from-black to-zinc-900 border-x border-t border-orange-600 flex items-end justify-center podium-place relative overflow-hidden">
+                        <div class="absolute bottom-0 text-[120px] font-black text-white/5 font-orbitron leading-none select-none">1</div>
+                        <div class="h-1 w-1/2 bg-orange-600 mb-4 shadow-[0_0_20px_orange]"></div>
+                    </div>
+                </div>
+
+                <!-- 3er Lugar: Ciros -->
+                <div class="flex flex-col items-center justify-end group w-1/3">
+                    <div class="mb-2 relative transition-transform duration-500 group-hover:-translate-y-2">
+                        <i class="fas fa-user-astronaut text-5xl text-amber-800 bald-skin"></i>
+                    </div>
+                    <div class="text-center mb-2 z-10">
+                        <div class="font-black uppercase tracking-wider text-sm md:text-base text-white glow-text">Ciros</div>
+                        <div class="font-mono text-xs text-amber-700">3er Clasificado</div>
+                    </div>
+                    <div class="w-full h-24 md:h-32 bg-gradient-to-t from-black to-zinc-900 border-x border-t border-amber-900/50 flex items-end justify-center podium-place relative overflow-hidden">
+                        <div class="absolute bottom-0 text-[80px] font-black text-white/5 font-orbitron leading-none select-none">3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRACKET DEL TORNEO -->
+        <div class="hk-glass p-6 overflow-x-auto rounded-lg mb-12">
+            <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-orange-500 uppercase tracking-widest">
+                <i class="fas fa-sitemap"></i> Protocolo de Eliminación
+            </h3>
+            
+            <div class="min-w-[800px] grid grid-cols-4 gap-4 text-center mb-4">
+                <div class="text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">Fase Sangrienta</div>
+                <div class="text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">Purga</div>
+                <div class="text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">Ascensión</div>
+                <div class="text-orange-600 text-[10px] uppercase tracking-[0.2em] font-bold glow-text">Dominio Total</div>
+            </div>
+
+            <div class="min-w-[800px] grid grid-cols-4 gap-6 relative" id="bracket-view">
+                <!-- JS Bracket -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- ========================================== -->
+    <!-- SECCIÓN 2: LAS APUESTAS (Ranking de Dinero) -->
+    <!-- ========================================== -->
+    <section class="max-w-[1600px] mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="h-px bg-orange-900 flex-1"></div>
+            <h2 class="text-3xl font-black text-white uppercase tracking-widest glow-text">
+                <i class="fas fa-coins text-orange-600 mr-2"></i> Mercado de Apuestas
+            </h2>
+            <div class="h-px bg-orange-900 flex-1"></div>
+        </div>
+
+        <!-- PODIO DE APOSTADORES -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <div class="text-center mb-4">
+                <p class="text-zinc-500 uppercase tracking-[0.2em] text-sm">Los Barones del Crédito</p>
+            </div>
+            <div id="podium-bettors" class="flex items-end justify-center gap-4 h-64 md:h-80 px-4">
+                <!-- JS Inject Here -->
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-4 gap-8">
+            <!-- LEADERBOARD FINANCIERO -->
+            <div class="xl:col-span-1">
+                <div class="hk-glass p-6 sticky top-8">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white border-b border-orange-800 pb-4 uppercase tracking-wider">
+                        <i class="fas fa-chart-line text-orange-600"></i> Balance Neto
+                    </h3>
+                    <div id="leaderboard" class="space-y-2">
+                        <!-- Leaderboard JS -->
+                    </div>
                 </div>
             </div>
 
-            <!-- Lista Detallada de Apuestas -->
-            <div>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-300">
-                    <i class="fas fa-list-ul"></i> Registro de Combates y Apuestas
-                </h2>
+            <!-- REGISTRO DE APUESTAS -->
+            <div class="xl:col-span-3">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-zinc-400 uppercase tracking-widest">
+                        <i class="fas fa-file-invoice-dollar"></i> Libro Mayor de Transacciones
+                    </h3>
+                </div>
                 <div id="fights-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Peleas se llenan con JS -->
+                    <!-- Peleas JS -->
                 </div>
             </div>
-        </section>
-
-    </main>
+        </div>
+    </section>
 
     <script>
-        // --- 1. DATOS DE ENTRADA (Ordenados Cronológicamente) ---
+        // --- 1. DATOS DE ENTRADA ---
         const rawFights = [
-            // --- PRELIMINARES / CLASIFICATORIAS TEMPRANAS ---
-            { title: "Pichon vs Ububu", winner: "Pichon", phase: "Preliminar A", bets: [
-                { user: "WhodouVoodoo", amount: "50k", on: "Ububu" }, { user: "Alfo", amount: "100k", on: "Pichon" }, { user: "Jpthekit", amount: "200k", on: "Ububu" }, { user: "Eric_LOM", amount: "20k", on: "Pichon" }, { user: "Facolnest", amount: "200k", on: "Pichon" }, { user: "Ladislao", amount: "500k", on: "Ububu" }, { user: "Nijhitivi", amount: "200k", on: "Pichon" } ] },
-            
-            { title: "Zripht vs Ladislao", winner: "Ladislao", phase: "Preliminar B", bets: [
-                { user: "WhodouVoodoo", amount: "50k", on: "Ladislao" }, { user: "Pichon9898", amount: "50k", on: "Zripht" }, { user: "Kuga2207", amount: "20k", on: "Zripht" }, { user: "Jpthekit", amount: "50k", on: "Ladislao" }, { user: "Nijhitivi", amount: "200k", on: "Ladislao" }, { user: "Facolnest", amount: "300k", on: "Zripht" }, { user: "Eric_LOM", amount: "50k", on: "Ladislao" } ] },
-            
-            { title: "Kuga vs Alfo", winner: "Alfo", phase: "Preliminar C", bets: [
-                { user: "Zripht", amount: "400k", on: "Alfo" }, { user: "Ladislao", amount: "500k", on: "Alfo" }, { user: "WhodouVoodoo", amount: "100k", on: "Alfo" }, { user: "Nijhitivi", amount: "400k", on: "Kuga" }, { user: "Facolnest", amount: "200k", on: "Kuga" }, { user: "Eric_LOM", amount: "50k", on: "Kuga" }, { user: "Jpthekit", amount: "50k", on: "Kuga" }, { user: "Pichon9898", amount: "100k", on: "Alfo" } ] },
-            
-            // Ladislao viene de ganar la Preliminar B
-            { title: "JPtheKit vs Ladislao", winner: "JPtheKit", phase: "Eliminatoria 1", bets: [
-                { user: "Zripht", amount: "500k", on: "Ladislao" }, { user: "WhodouVoodoo", amount: "100k", on: "JPtheKit" }, { user: "Pichon9898", amount: "200k", on: "Ladislao" }, { user: "Nijhitivi", amount: "200k", on: "Ladislao" }, { user: "Facolnest", amount: "200k", on: "Ladislao" }, { user: "Kuga2207", amount: "20k", on: "JPtheKit" }, { user: "Alfo", amount: "200k", on: "JPtheKit" }, { user: "Eric_LOM", amount: "50k", on: "JPtheKit" } ] },
-            
-            // Alfo viene de ganar la Preliminar C
-            { title: "Whodo vs Alfo", winner: "Whodo", phase: "Eliminatoria 2", bets: [
-                { user: "Pichon9898", amount: "200k", on: "Alfo" }, { user: "Facolnest", amount: "200k", on: "Whodo" }, { user: "Ladislao", amount: "69k", on: "Whodo" }, { user: "Nijhitivi", amount: "500k", on: "Whodo" }, { user: "Eric_LOM", amount: "50k", on: "Whodo" }, { user: "Kuga2207", amount: "40k", on: "Alfo" }, { user: "Jpthekit", amount: "50k", on: "Alfo" } ] },
-            
-            { title: "IBM vs Ciro", winner: "Ciro", phase: "Preliminar D", bets: [
-                { user: "Facolnest", amount: "200k", on: "Ciro" }, { user: "Alfo", amount: "300k", on: "Ciro" }, { user: "WhodouVoodoo", amount: "100k", on: "IBM" }, { user: "Pichon9898", amount: "500k", on: "IBM" }, { user: "Nijhitivi", amount: "300k", on: "IBM" }, { user: "Kuga2207", amount: "80k", on: "IBM" }, { user: "Ladislao", amount: "100k", on: "IBM" }, { user: "Eric_LOM", amount: "50k", on: "IBM" } ] },
-            
-            { title: "Roi vs Nijhitivi", winner: "Nijhitivi", phase: "Preliminar E", bets: [
-                { user: "WhodouVoodoo", amount: "100k", on: "Nijhitivi" }, { user: "Pichon9898", amount: "1M", on: "Nijhitivi" }, { user: "Kuga2207", amount: "200k", on: "Nijhitivi" }, { user: "Facolnest", amount: "300k", on: "Roi" }, { user: "Eric_LOM", amount: "50k", on: "Nijhitivi" }, { user: "Alfo", amount: "500k", on: "Roi" }, { user: "Ladislao", amount: "200k", on: "Roi" } ] },
-            
-            // --- CUARTOS DE FINAL ---
-            // Pichon viene de ganar Preliminar A
-            { title: "Pichon vs EricTheKit", winner: "EricTheKit", phase: "Cuartos A", bets: [
-                { user: "Facolnest", amount: "300k", on: "Pichon" }, { user: "Alfo", amount: "400k", on: "EricTheKit" }, { user: "Kuga2207", amount: "50k", on: "Pichon" }, { user: "WhodouVoodoo", amount: "50k", on: "EricTheKit" } ] },
-            
-            // JP viene de ganar Eliminatoria 1
-            { title: "JPTheKit vs Facolnest", winner: "JPTheKit", phase: "Cuartos B", bets: [
-                { user: "WhodouVoodoo", amount: "200k", on: "JPTheKit" }, { user: "Ladislao", amount: "2M", on: "Facolnest" }, { user: "Pichon9898", amount: "1M", on: "Facolnest" }, { user: "Eric_LOM", amount: "100k", on: "JPTheKit" }, { user: "Kuga2207", amount: "200k", on: "JPTheKit" }, { user: "Zripht", amount: "3M", on: "JPTheKit" }, { user: "Nijhitivi", amount: "500k", on: "JPTheKit" } ] },
-            
-            // Nijhitivi viene de ganar Preliminar E
-            { title: "Nijhitivi vs Alejandro", winner: "Nijhitivi", phase: "Cuartos C", bets: [
-                { user: "WhodouVoodoo", amount: "100k", on: "Nijhitivi" }, { user: "Kuga2207", amount: "200k", on: "Nijhitivi" }, { user: "Pichon9898", amount: "2M", on: "Alejandro" }, { user: "Facolnest", amount: "500k", on: "Nijhitivi" }, { user: "Ladislao", amount: "200k", on: "Nijhitivi" }, { user: "Alfo", amount: "500k", on: "Nijhitivi" }, { user: "Jpthekit", amount: "50k", on: "Nijhitivi" }, { user: "Eric_LOM", amount: "100k", on: "Nijhitivi" } ] },
-            
-            // Whodo (Eliminatoria 2) vs Ciro (Preliminar D)
-            { title: "Whodo vs Ciros", winner: "Ciros", phase: "Cuartos D", bets: [
-                { user: "Facolnest", amount: "500k", on: "Whodo" }, { user: "Ladislao", amount: "500k", on: "Ciros" }, { user: "Pichon9898", amount: "3M", on: "Whodo" }, { user: "Eric_LOM", amount: "100k", on: "Whodo" }, { user: "Kuga2207", amount: "200k", on: "Whodo" }, { user: "Jpthekit", amount: "100k", on: "Whodo" }, { user: "Nijhitivi", amount: "600k", on: "Whodo" } ] },
-            
-            // --- SEMIFINALES ---
-            // Eric (Cuartos A) vs JP (Cuartos B)
-            { title: "EricTheKit vs JPTheKit", winner: "JPTheKit", phase: "Semifinal 1", bets: [
-                { user: "Pichon9898", amount: "10M", on: "JPTheKit" }, { user: "Nijhitivi", amount: "1M", on: "JPTheKit" }, { user: "Perdi1412", amount: "500k", on: "EricTheKit" }, { user: "WhodouVoodoo", amount: "500k", on: "EricTheKit" }, { user: "Kuga2207", amount: "500k", on: "JPTheKit" }, { user: "Curtidor", amount: "1M", on: "EricTheKit" }, { user: "Facolnest", amount: "1M", on: "JPTheKit" }, { user: "Ladislao", amount: "750k", on: "EricTheKit" }, { user: "Zripht", amount: "500k", on: "EricTheKit" } ] },
-            
-            // Nijhitivi (Cuartos C) vs Ciro (Cuartos D)
-            { title: "Nijhitivi vs Ciros", winner: "Nijhitivi", phase: "Semifinal 2", bets: [
-                { user: "Facolnest", amount: "1M", on: "Ciros" }, { user: "WhodouVoodoo", amount: "500k", on: "Nijhitivi" }, { user: "Pichon9898", amount: "10M", on: "Ciros" }, { user: "Kuga2207", amount: "500k", on: "Nijhitivi" }, { user: "Eric_LOM", amount: "500k", on: "Ciros" }, { user: "Alfo", amount: "1M", on: "Nijhitivi" }, { user: "Zripht", amount: "500k", on: "Nijhitivi" }, { user: "Ladislao", amount: "500k", on: "Nijhitivi" } ] },
-            
-            // --- FINALES ---
-            // 3er Puesto (Perdedores Semis: Eric vs Ciro)
-            { title: "ErictheKit vs Ciros", winner: "Ciros", phase: "3er Puesto", bets: [
-                { user: "Nijhitivi", amount: "1M", on: "Ciros" }, { user: "WhodouVoodoo", amount: "1M", on: "Ciros" }, { user: "Pichon9898", amount: "10M", on: "Ciros" }, { user: "Zripht", amount: "2M", on: "ErictheKit" }, { user: "Ladislao", amount: "1M", on: "ErictheKit" }, { user: "Kuga2207", amount: "1M", on: "ErictheKit" }, { user: "Alfo", amount: "1M", on: "ErictheKit" }, { user: "Facolnest", amount: "2M", on: "Ciros" } ] },
-            
-            // Gran Final (Ganadores Semis: JP vs Nijhitivi)
-            { title: "JPTheKit vs Nijhitivi", winner: "Nijhitivi", phase: "GRAN FINAL", bets: [
-                { user: "Curtidor", amount: "2M", on: "Nijhitivi" }, { user: "WhodouVoodoo", amount: "2M", on: "JPTheKit" }, { user: "Alfo", amount: "2M", on: "Nijhitivi" }, { user: "Kuga2207", amount: "1M", on: "JPTheKit" }, { user: "Eric_LOM", amount: "3M", on: "JPTheKit" }, { user: "Zripht", amount: "5M", on: "JPTheKit" }, { user: "Perdi1412", amount: "1M", on: "Nijhitivi" }, { user: "Ladislao", amount: "2M", on: "JPTheKit" }, { user: "Facolnest", amount: "2M", on: "JPTheKit" }, { user: "Pichon9898", amount: "10M", on: "Nijhitivi" } ] }
+            { title: "Pichon vs Ububu", winner: "Pichon", phase: "Preliminar A", bets: [ { user: "WhodouVoodoo", amount: "50k", on: "Ububu" }, { user: "Alfo", amount: "100k", on: "Pichon" }, { user: "Jpthekit", amount: "200k", on: "Ububu" }, { user: "Eric_LOM", amount: "20k", on: "Pichon" }, { user: "Facolnest", amount: "200k", on: "Pichon" }, { user: "Ladislao", amount: "500k", on: "Ububu" }, { user: "Nijhitivi", amount: "200k", on: "Pichon" } ] },
+            { title: "Zripht vs Ladislao", winner: "Ladislao", phase: "Preliminar B", bets: [ { user: "WhodouVoodoo", amount: "50k", on: "Ladislao" }, { user: "Pichon9898", amount: "50k", on: "Zripht" }, { user: "Kuga2207", amount: "20k", on: "Zripht" }, { user: "Jpthekit", amount: "50k", on: "Ladislao" }, { user: "Nijhitivi", amount: "200k", on: "Ladislao" }, { user: "Facolnest", amount: "300k", on: "Zripht" }, { user: "Eric_LOM", amount: "50k", on: "Ladislao" } ] },
+            { title: "Kuga vs Alfo", winner: "Alfo", phase: "Preliminar C", bets: [ { user: "Zripht", amount: "400k", on: "Alfo" }, { user: "Ladislao", amount: "500k", on: "Alfo" }, { user: "WhodouVoodoo", amount: "100k", on: "Alfo" }, { user: "Nijhitivi", amount: "400k", on: "Kuga" }, { user: "Facolnest", amount: "200k", on: "Kuga" }, { user: "Eric_LOM", amount: "50k", on: "Kuga" }, { user: "Jpthekit", amount: "50k", on: "Kuga" }, { user: "Pichon9898", amount: "100k", on: "Alfo" } ] },
+            { title: "JPtheKit vs Ladislao", winner: "JPtheKit", phase: "Eliminatoria 1", bets: [ { user: "Zripht", amount: "500k", on: "Ladislao" }, { user: "WhodouVoodoo", amount: "100k", on: "JPtheKit" }, { user: "Pichon9898", amount: "200k", on: "Ladislao" }, { user: "Nijhitivi", amount: "200k", on: "Ladislao" }, { user: "Facolnest", amount: "200k", on: "Ladislao" }, { user: "Kuga2207", amount: "20k", on: "JPtheKit" }, { user: "Alfo", amount: "200k", on: "JPtheKit" }, { user: "Eric_LOM", amount: "50k", on: "JPtheKit" } ] },
+            { title: "Whodo vs Alfo", winner: "Whodo", phase: "Eliminatoria 2", bets: [ { user: "Pichon9898", amount: "200k", on: "Alfo" }, { user: "Facolnest", amount: "200k", on: "Whodo" }, { user: "Ladislao", amount: "69k", on: "Whodo" }, { user: "Nijhitivi", amount: "500k", on: "Whodo" }, { user: "Eric_LOM", amount: "50k", on: "Whodo" }, { user: "Kuga2207", amount: "40k", on: "Alfo" }, { user: "Jpthekit", amount: "50k", on: "Alfo" } ] },
+            { title: "IBM vs Ciro", winner: "Ciro", phase: "Preliminar D", bets: [ { user: "Facolnest", amount: "200k", on: "Ciro" }, { user: "Alfo", amount: "300k", on: "Ciro" }, { user: "WhodouVoodoo", amount: "100k", on: "IBM" }, { user: "Pichon9898", amount: "500k", on: "IBM" }, { user: "Nijhitivi", amount: "300k", on: "IBM" }, { user: "Kuga2207", amount: "80k", on: "IBM" }, { user: "Ladislao", amount: "100k", on: "IBM" }, { user: "Eric_LOM", amount: "50k", on: "IBM" } ] },
+            { title: "Roi vs Nijhitivi", winner: "Nijhitivi", phase: "Preliminar E", bets: [ { user: "WhodouVoodoo", amount: "100k", on: "Nijhitivi" }, { user: "Pichon9898", amount: "1M", on: "Nijhitivi" }, { user: "Kuga2207", amount: "200k", on: "Nijhitivi" }, { user: "Facolnest", amount: "300k", on: "Roi" }, { user: "Eric_LOM", amount: "50k", on: "Nijhitivi" }, { user: "Alfo", amount: "500k", on: "Roi" }, { user: "Ladislao", amount: "200k", on: "Roi" } ] },
+            { title: "Pichon vs EricTheKit", winner: "EricTheKit", phase: "Cuartos A", bets: [ { user: "Facolnest", amount: "300k", on: "Pichon" }, { user: "Alfo", amount: "400k", on: "EricTheKit" }, { user: "Kuga2207", amount: "50k", on: "Pichon" }, { user: "WhodouVoodoo", amount: "50k", on: "EricTheKit" } ] },
+            { title: "JPTheKit vs Facolnest", winner: "JPTheKit", phase: "Cuartos B", bets: [ { user: "WhodouVoodoo", amount: "200k", on: "JPTheKit" }, { user: "Ladislao", amount: "2M", on: "Facolnest" }, { user: "Pichon9898", amount: "1M", on: "Facolnest" }, { user: "Eric_LOM", amount: "100k", on: "JPTheKit" }, { user: "Kuga2207", amount: "200k", on: "JPTheKit" }, { user: "Zripht", amount: "3M", on: "JPTheKit" }, { user: "Nijhitivi", amount: "500k", on: "JPTheKit" } ] },
+            { title: "Nijhitivi vs Alejandro", winner: "Nijhitivi", phase: "Cuartos C", bets: [ { user: "WhodouVoodoo", amount: "100k", on: "Nijhitivi" }, { user: "Kuga2207", amount: "200k", on: "Nijhitivi" }, { user: "Pichon9898", amount: "2M", on: "Alejandro" }, { user: "Facolnest", amount: "500k", on: "Nijhitivi" }, { user: "Ladislao", amount: "200k", on: "Nijhitivi" }, { user: "Alfo", amount: "500k", on: "Nijhitivi" }, { user: "Jpthekit", amount: "50k", on: "Nijhitivi" }, { user: "Eric_LOM", amount: "100k", on: "Nijhitivi" } ] },
+            { title: "Whodo vs Ciros", winner: "Ciros", phase: "Cuartos D", bets: [ { user: "Facolnest", amount: "500k", on: "Whodo" }, { user: "Ladislao", amount: "500k", on: "Ciros" }, { user: "Pichon9898", amount: "3M", on: "Whodo" }, { user: "Eric_LOM", amount: "100k", on: "Whodo" }, { user: "Kuga2207", amount: "200k", on: "Whodo" }, { user: "Jpthekit", amount: "100k", on: "Whodo" }, { user: "Nijhitivi", amount: "600k", on: "Whodo" } ] },
+            { title: "EricTheKit vs JPTheKit", winner: "JPTheKit", phase: "Semifinal 1", bets: [ { user: "Pichon9898", amount: "10M", on: "JPTheKit" }, { user: "Nijhitivi", amount: "1M", on: "JPTheKit" }, { user: "Perdi1412", amount: "500k", on: "EricTheKit" }, { user: "WhodouVoodoo", amount: "500k", on: "EricTheKit" }, { user: "Kuga2207", amount: "500k", on: "JPTheKit" }, { user: "Curtidor", amount: "1M", on: "EricTheKit" }, { user: "Facolnest", amount: "1M", on: "JPTheKit" }, { user: "Ladislao", amount: "750k", on: "EricTheKit" }, { user: "Zripht", amount: "500k", on: "EricTheKit" } ] },
+            { title: "Nijhitivi vs Ciros", winner: "Nijhitivi", phase: "Semifinal 2", bets: [ { user: "Facolnest", amount: "1M", on: "Ciros" }, { user: "WhodouVoodoo", amount: "500k", on: "Nijhitivi" }, { user: "Pichon9898", amount: "10M", on: "Ciros" }, { user: "Kuga2207", amount: "500k", on: "Nijhitivi" }, { user: "Eric_LOM", amount: "500k", on: "Ciros" }, { user: "Alfo", amount: "1M", on: "Nijhitivi" }, { user: "Zripht", amount: "500k", on: "Nijhitivi" }, { user: "Ladislao", amount: "500k", on: "Nijhitivi" } ] },
+            { title: "ErictheKit vs Ciros", winner: "Ciros", phase: "3er Puesto", bets: [ { user: "Nijhitivi", amount: "1M", on: "Ciros" }, { user: "WhodouVoodoo", amount: "1M", on: "Ciros" }, { user: "Pichon9898", amount: "10M", on: "Ciros" }, { user: "Zripht", amount: "2M", on: "ErictheKit" }, { user: "Ladislao", amount: "1M", on: "ErictheKit" }, { user: "Kuga2207", amount: "1M", on: "ErictheKit" }, { user: "Alfo", amount: "1M", on: "ErictheKit" }, { user: "Facolnest", amount: "2M", on: "Ciros" } ] },
+            { title: "JPTheKit vs Nijhitivi", winner: "Nijhitivi", phase: "GRAN FINAL", bets: [ { user: "Curtidor", amount: "2M", on: "Nijhitivi" }, { user: "WhodouVoodoo", amount: "2M", on: "JPTheKit" }, { user: "Alfo", amount: "2M", on: "Nijhitivi" }, { user: "Kuga2207", amount: "1M", on: "JPTheKit" }, { user: "Eric_LOM", amount: "3M", on: "JPTheKit" }, { user: "Zripht", amount: "5M", on: "JPTheKit" }, { user: "Perdi1412", amount: "1M", on: "Nijhitivi" }, { user: "Ladislao", amount: "2M", on: "JPTheKit" }, { user: "Facolnest", amount: "2M", on: "JPTheKit" }, { user: "Pichon9898", amount: "10M", on: "Nijhitivi" } ] }
         ];
 
-        // --- 2. FUNCIONES DE AYUDA (Parsing y Formato) ---
+        // --- 2. HELPERS ---
         function parseAmount(str) {
             if (!str) return 0;
             const cleanStr = str.toLowerCase().replace(/,/g, '.').replace(/\s/g, '');
@@ -205,7 +288,7 @@
             return name; 
         }
 
-        // --- 3. LOGICA DE CÁLCULO ---
+        // --- 3. LÓGICA ---
         const userBalances = {};
         rawFights.forEach(f => f.bets.forEach(b => {
             const user = normalizeUser(b.user);
@@ -221,7 +304,7 @@
             fight.bets.forEach(bet => {
                 const amount = parseAmount(bet.amount);
                 let betOn = bet.on;
-                // Normalización Ad-hoc para coincidir con winners del chat
+                // Normalizaciones manuales
                 if(bet.on.toLowerCase().includes("eric")) betOn = "EricTheKit";
                 if(bet.on.toLowerCase().includes("pichon")) betOn = "Pichon";
                 if(bet.on.toLowerCase() === "ubu") betOn = "Ububu";
@@ -234,8 +317,6 @@
                 if(bet.on.toLowerCase().includes("jp")) betOn = "JPTheKit";
                 
                 let actualWinner = fight.winner;
-                if(fight.winner === "Ciro") actualWinner = "Ciros"; 
-                if(fight.winner === "EricTheKit") actualWinner = "EricTheKit";
 
                 const isWinner = betOn.toLowerCase().includes(fight.winner.toLowerCase()) || 
                                  (fight.winner === "Ciro" && betOn.toLowerCase().includes("ciro")) ||
@@ -270,69 +351,106 @@
 
         // --- 4. RENDERIZADO ---
 
-        // Render Leaderboard
+        // Render Leaderboard (Financial)
         const leaderboardContainer = document.getElementById('leaderboard');
         const sortedUsers = Object.entries(userBalances).sort(([,a], [,b]) => b - a);
 
         sortedUsers.forEach(([user, balance], index) => {
             const div = document.createElement('div');
             const rank = index + 1;
-            let rankClass = "bg-slate-700/50 text-slate-400";
+            let rankClass = "text-zinc-500";
             let icon = "";
-            let rowClass = "border-slate-700 hover:bg-slate-800";
+            let rowClass = "border-zinc-800 bg-zinc-900/30";
+            let userClass = "text-zinc-400";
             
-            if (rank === 1) { rankClass = "bg-amber-500 text-amber-900 shadow-[0_0_10px_rgba(245,158,11,0.5)]"; icon = "👑"; rowClass = "border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20"; }
-            if (rank === 2) { rankClass = "bg-slate-300 text-slate-900"; icon = "🥈"; }
-            if (rank === 3) { rankClass = "bg-orange-700 text-orange-200"; icon = "🥉"; }
+            if (rank === 1) { 
+                icon = "👑"; 
+                rowClass = "border-orange-500/50 bg-orange-900/20"; 
+                userClass = "text-orange-100 font-bold glow-text";
+            }
+            if (rank === 2 || rank === 3) {
+                userClass = "text-orange-200";
+            }
 
-            const balanceClass = balance >= 0 ? "text-emerald-400" : "text-rose-400";
+            const balanceClass = balance >= 0 ? "text-emerald-500" : "text-red-500";
             const formattedBalance = formatter.format(balance);
 
-            div.className = `flex items-center justify-between p-3 rounded-lg transition border ${rowClass} mb-2`;
+            div.className = `flex items-center justify-between p-2 rounded-sm transition border-b ${rowClass} hover:bg-zinc-800`;
             div.innerHTML = `
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 flex items-center justify-center rounded-sm font-black sc-font ${rankClass}">
+                    <div class="w-6 text-center font-black harkonnen-font ${rankClass} text-sm">
                         ${rank}
                     </div>
-                    <span class="font-bold tracking-wide">${icon} ${user}</span>
+                    <span class="tracking-wide uppercase text-sm ${userClass}">${icon} ${user}</span>
                 </div>
                 <div class="text-right">
-                    <div class="${balanceClass} font-mono font-bold text-lg drop-shadow-md">${formattedBalance}</div>
+                    <div class="${balanceClass} font-mono font-bold text-sm tracking-tighter">${formattedBalance}</div>
                 </div>
             `;
             leaderboardContainer.appendChild(div);
         });
 
-        // --- RENDER BRACKET (TORNEO) ---
+        // --- RENDER PODIUM BETTORS ---
+        const podiumBettors = document.getElementById('podium-bettors');
+        const top3Bettors = [sortedUsers[1], sortedUsers[0], sortedUsers[2]]; // Silver, Gold, Bronze
+        
+        if(top3Bettors[1]) {
+            const createPodiumCard = (userEntry, place, heightClass, colorClass, medalIcon) => {
+                if(!userEntry) return '';
+                const [user, balance] = userEntry;
+                return `
+                    <div class="flex flex-col items-center justify-end group w-1/3">
+                        <div class="mb-2 relative transition-transform duration-500 group-hover:-translate-y-2">
+                            <i class="fas fa-user-tie text-5xl ${colorClass} bald-skin"></i>
+                            <i class="fas ${medalIcon} absolute -top-4 -right-2 text-xl drop-shadow-md text-white"></i>
+                        </div>
+                        <div class="text-center mb-2 z-10">
+                            <div class="font-black uppercase tracking-wider text-sm md:text-base text-white glow-text">${user}</div>
+                            <div class="font-mono text-xs md:text-sm ${colorClass}">${formatShort(balance)}</div>
+                        </div>
+                        <div class="w-full ${heightClass} bg-gradient-to-t from-black to-zinc-900 border-x border-t border-orange-600/30 flex items-end justify-center podium-place relative overflow-hidden">
+                             <div class="absolute bottom-0 text-[100px] font-black text-white/5 font-orbitron leading-none select-none">${place}</div>
+                             <div class="h-1 w-1/2 bg-orange-600 mb-4 shadow-[0_0_10px_orange]"></div>
+                        </div>
+                    </div>
+                `;
+            };
+
+            podiumBettors.innerHTML = `
+                ${createPodiumCard(sortedUsers[1], '2', 'h-32 md:h-40', 'text-zinc-400', 'fa-medal')}
+                ${createPodiumCard(sortedUsers[0], '1', 'h-48 md:h-60', 'text-orange-500', 'fa-crown')}
+                ${createPodiumCard(sortedUsers[2], '3', 'h-24 md:h-32', 'text-amber-700', 'fa-medal')}
+            `;
+        }
+
+
+        // --- RENDER BRACKET ---
         const bracketView = document.getElementById('bracket-view');
         
-        // Helper para crear tarjetas mini del bracket
         function createBracketCard(fightIdx) {
-            if (fightIdx === undefined) return '<div class="h-24"></div>'; // Spacer
+            if (fightIdx === undefined) return '<div class="h-24"></div>'; 
             const f = fightsProcessed[fightIdx];
             return `
-                <div class="sc-card rounded p-3 mb-4 relative overflow-hidden group border border-slate-700 hover:border-cyan-400">
+                <div class="hk-card rounded-sm p-3 mb-4 group border border-zinc-800 hover:border-orange-500">
                     <div class="absolute top-0 right-0 p-1">
-                        <span class="text-[10px] uppercase text-slate-500 font-bold bg-slate-900 px-1 rounded">${f.phase}</span>
+                        <span class="text-[9px] uppercase text-zinc-500 font-bold bg-black px-1 border border-zinc-800">${f.phase}</span>
                     </div>
-                    <div class="text-xs text-slate-400 mt-2 mb-1">Combate #${f.id + 1}</div>
-                    <div class="font-bold text-sm text-white truncate">${f.title}</div>
-                    <div class="mt-2 flex justify-between items-end border-t border-slate-700 pt-2">
-                        <span class="text-[10px] text-slate-500">Ganador</span>
-                        <span class="text-cyan-400 font-bold text-sm glow">${f.winner}</span>
+                    <div class="text-[10px] text-orange-800 mt-2 mb-1 uppercase tracking-widest">Protocolo #${f.id + 1}</div>
+                    <div class="font-bold text-xs text-zinc-300 truncate font-orbitron">${f.title}</div>
+                    <div class="mt-2 flex justify-between items-end border-t border-dashed border-zinc-800 pt-2">
+                        <span class="text-[9px] text-zinc-600 uppercase">Victorioso</span>
+                        <span class="text-orange-500 font-bold text-xs uppercase glow-text">${f.winner}</span>
                     </div>
                 </div>
             `;
         }
 
-        // Estructura visual por columnas (Col 1: Prelims, Col 2: Cuartos, Col 3: Semis, Col 4: Finales)
-        // Indices basados en rawFights ordenado
         const col1 = [0, 1, 2, 3, 4, 5, 6].map(i => createBracketCard(i)).join('');
         const col2 = [7, 8, 9, 10].map(i => createBracketCard(i)).join('');
-        const col3 = [11, 12].map(i => `<div class="mt-8">${createBracketCard(i)}</div>`).join(''); // Spacing manual
+        const col3 = [11, 12].map(i => `<div class="mt-8">${createBracketCard(i)}</div>`).join('');
         const col4 = [
-            createBracketCard(14), // Final
-            `<div class="mt-12 opacity-75 scale-90 border-t-2 border-dashed border-slate-600 pt-4"><div class="text-center text-xs text-slate-500 uppercase mb-2">3er Puesto</div>${createBracketCard(13)}</div>` // 3er puesto
+            createBracketCard(14), 
+            `<div class="mt-12 opacity-50 scale-90 border-t border-zinc-800 pt-4"><div class="text-center text-[10px] text-zinc-600 uppercase mb-2 tracking-widest">Despojo (3er)</div>${createBracketCard(13)}</div>`
         ].join('');
 
         bracketView.innerHTML = `
@@ -348,21 +466,20 @@
         
         fightsProcessed.forEach((fight, idx) => {
             const card = document.createElement('div');
-            card.className = "sc-card rounded-xl p-5 border border-slate-800";
+            card.className = "hk-card rounded p-4 border border-zinc-800";
             
-            // Filas de tabla
             let tableRows = fight.results.map(r => {
-                const colorClass = r.type === 'win' ? 'text-emerald-400' : 'text-rose-400';
+                const colorClass = r.type === 'win' ? 'text-emerald-500' : 'text-red-500/70';
                 const sign = r.type === 'win' ? '+' : '';
-                const bgRow = r.type === 'win' ? 'bg-emerald-500/5' : 'bg-rose-500/5';
+                const bgRow = r.type === 'win' ? 'bg-emerald-900/10' : '';
                 const detail = r.type === 'win' 
-                    ? `<span class="text-[10px] text-slate-500 bg-slate-900 px-1 rounded border border-slate-700">${formatShort(r.betAmount)}</span>` 
+                    ? `<span class="text-[9px] text-zinc-500 bg-black px-1 border border-zinc-800">${formatShort(r.betAmount)}</span>` 
                     : ``;
 
                 return `
-                    <tr class="border-b border-slate-700/30 ${bgRow} hover:bg-slate-700/20">
-                        <td class="py-1 px-2 font-medium text-sm text-slate-300">${r.user}</td>
-                        <td class="py-1 px-2 text-right ${colorClass} font-mono text-sm tracking-tighter">
+                    <tr class="border-b border-zinc-800/50 ${bgRow} hover:bg-zinc-800/30 transition">
+                        <td class="py-1 px-2 font-medium text-xs text-zinc-400 uppercase tracking-tight">${r.user}</td>
+                        <td class="py-1 px-2 text-right ${colorClass} font-mono text-xs tracking-tighter">
                             ${sign}${formatShort(r.amount)}
                         </td>
                         <td class="py-1 px-2 text-right">${detail}</td>
@@ -371,31 +488,31 @@
             }).join('');
 
             card.innerHTML = `
-                <div class="flex justify-between items-start mb-3 border-b border-slate-700/50 pb-3">
+                <div class="flex justify-between items-start mb-3 border-b border-zinc-800 pb-2">
                     <div>
-                        <span class="text-cyan-600 text-[10px] font-bold uppercase tracking-widest bg-cyan-900/10 px-2 py-0.5 rounded border border-cyan-900/30">${fight.phase}</span>
-                        <h3 class="text-lg font-bold text-white mt-1 leading-tight">${fight.title}</h3>
+                        <span class="text-orange-700 text-[9px] font-bold uppercase tracking-[0.2em]">${fight.phase}</span>
+                        <h3 class="text-sm font-bold text-zinc-200 mt-0.5 font-orbitron">${fight.title}</h3>
                     </div>
                     <div class="text-right">
-                        <div class="text-[10px] text-slate-500 uppercase">Ganador</div>
-                        <div class="text-lg font-bold text-amber-400 drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]">${fight.winner}</div>
+                        <div class="text-[9px] text-zinc-600 uppercase tracking-widest">Vencedor</div>
+                        <div class="text-base font-bold text-orange-500 uppercase glow-text">${fight.winner}</div>
                     </div>
                 </div>
                 
-                <div class="mb-3 flex gap-2 text-xs">
-                    <div class="bg-slate-900 px-2 py-1 rounded border border-slate-700 flex-1 text-center">
-                        <div class="text-slate-500 text-[10px] uppercase">Bote</div>
-                        <div class="text-white font-mono">${formatShort(fight.pot)}</div>
+                <div class="mb-3 flex gap-1 text-xs">
+                    <div class="bg-black/50 px-2 py-1 flex-1 text-center border border-zinc-800">
+                        <div class="text-zinc-600 text-[9px] uppercase tracking-widest">Bote</div>
+                        <div class="text-zinc-300 font-mono">${formatShort(fight.pot)}</div>
                     </div>
-                    <div class="bg-slate-900 px-2 py-1 rounded border border-slate-700 flex-1 text-center">
-                        <div class="text-slate-500 text-[10px] uppercase">Ganadores</div>
-                        <div class="text-white font-mono">${formatShort(fight.totalWinningBets)}</div>
+                    <div class="bg-black/50 px-2 py-1 flex-1 text-center border border-zinc-800">
+                        <div class="text-zinc-600 text-[9px] uppercase tracking-widest">Ganadores</div>
+                        <div class="text-zinc-300 font-mono">${formatShort(fight.totalWinningBets)}</div>
                     </div>
                 </div>
 
-                <div class="overflow-hidden rounded border border-slate-800/50">
+                <div class="overflow-hidden border border-zinc-800/50 bg-black/20">
                     <table class="w-full text-xs">
-                        <tbody class="divide-y divide-slate-800">
+                        <tbody class="divide-y divide-zinc-800/50">
                             ${tableRows}
                         </tbody>
                     </table>

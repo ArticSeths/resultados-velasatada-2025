@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velasatada Harkonnen 2025</title>
+    <title>Velasatada 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -274,7 +274,11 @@
             return numeric;
         }
 
-        const formatter = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+        // CAMBIO AQUI: Formateador manual para aUEC
+        const formatter = new Intl.NumberFormat('es-ES', { 
+            style: 'decimal', 
+            maximumFractionDigits: 0 
+        });
 
         function formatShort(num) {
             if (Math.abs(num) >= 1000000) return (num / 1000000).toFixed(1) + 'M';
@@ -373,7 +377,8 @@
             }
 
             const balanceClass = balance >= 0 ? "text-emerald-500" : "text-red-500";
-            const formattedBalance = formatter.format(balance);
+            // CAMBIO AQUI: Concatenar aUEC
+            const formattedBalance = formatter.format(balance) + ' aUEC';
 
             div.className = `flex items-center justify-between p-2 rounded-sm transition border-b ${rowClass} hover:bg-zinc-800`;
             div.innerHTML = `
